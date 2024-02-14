@@ -79,6 +79,17 @@ class Samolet {
         }
 
     }
+    fun readFile(fileName: String){
+        val file = File("$fileName.txt")
+        if(file.exists()){
+            val lines = file.readLines()
+            for(line in lines){
+                println(line)
+            }
+        }else{
+            println("Файл не найден")
+        }
+    }
 
 
 
