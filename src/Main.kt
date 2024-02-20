@@ -13,6 +13,7 @@ fun main(){
     Exam1.output(Exam1)
     Exam1.average(Exam1)
     Exam1.output1(Exam1)
+    Exam1.vivod1(Exam1)
 
 
 }

@@ -1,3 +1,4 @@
+import java.io.File
 import kotlin.random.Random
 
 class Exam {
@@ -6,7 +7,7 @@ class Exam {
     var datax = 0.0
     var ocen = 0.0
 
-    fun input1(Exam1:Exam){
+    fun input1(Exam1: Exam) {
         try {
             println("Введите свое имя")
             Exam1.Names = readLine()!!.toString()
@@ -20,31 +21,34 @@ class Exam {
             println("Введите оценку")
             Exam1.ocen = readLine()!!.toDouble()
 
-        }catch (e:Exception){
+        } catch (e: Exception) {
             println("Не верно")
         }
     }
 
-    fun output(Exam1:Exam){
-            println("Имя:${Exam1.Names} \n Предмет:${Exam1.item} \n Дата экзамена:${Exam1.datax} \n Оценка:${Exam1.ocen}")
+    fun output(Exam1: Exam) {
+        println("Имя:${Exam1.Names} \n Предмет:${Exam1.item} \n Дата экзамена:${Exam1.datax} \n Оценка:${Exam1.ocen}")
     }
 
-    fun average(Exam1: Exam){
+    fun average(Exam1: Exam) {
         try {
 
             println("Введите последние 10 оценок ученика за этом месяц")
             var sum = 0.0
-            for(i in 1..10)
-            {
+            for (i in 1..10) {
                 println("Значения $i:")
                 var a = readln()!!.toDouble()
                 sum += a.toDouble()
             }
-            var aver = sum/10
+            var aver = sum / 10
             println("Среднее:$aver")
-        }catch (e:Exception){}
-        println("Ошибка")
+        } catch (e: Exception) {
+            println("Ошибка")
+        }
     }
+
+
+
 
     fun output1(Exam1: Exam) {
         try {
@@ -72,8 +76,34 @@ class Exam {
                 }
             }
         } catch (e: Exception) {
-            println("ошибка: ${e.message}")
+            println("Ошибка")
+        }
+    }
+
+    fun vivod1(exam1: Exam) {
+
+        println("Хотите сохранить файл нажмите 1")
+        var a = readln()!!.toInt()
+        println("Введите имя файла")
+        var b = readln()!!.toString()
+        when(a == 1){
+            true -> {
+                val writer = File("${b}.txt").bufferedWriter()
+                writer.write("Имя: ${exam1.Names}")
+                writer.newLine()
+                writer.write("Предмет: ${exam1.item}")
+                writer.newLine()
+                writer.write("Дата экзамена: ${exam1.datax}")
+                writer.newLine()
+                writer.write("Оценка: ${exam1.ocen}")
+                writer.newLine()
+
+            }
+            false ->{
+                println("Ладно не будем")
+            }
         }
     }
 
 }
+
