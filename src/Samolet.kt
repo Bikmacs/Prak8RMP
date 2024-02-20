@@ -4,7 +4,7 @@ class Samolet {
     var Marka = ""
     var punkt = ""
     var punktn = ""
-    var data = 0.0
+    var data =       0.0
     var time = 0.0
     var oborti = 0.0
 
